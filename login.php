@@ -2,27 +2,32 @@
 session_start();
 
 
-//if(isset($_SERVER['REQUEST']) && $_SERVER['REQUEST'] == 'POST'){
+if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+    require_once 'init.php';
 
     // proccess Login 
-    print_r($_POST);
+   
 
-    $username = $_POST['username'] ;   
+    $email = $_POST['email'] ;   
 
     $password = $_POST['password'];
+    $user_data = array('email'=>$email, 'password' =>$password);
+    
+    
 
     //clean user name and passwrod
-    $user->login($username, $password);
+    $user->login($user_data);
 
 
-    // was login a success    
-    if($user->$isLoginSuccess) 
-    // send to account
-        header('Location : ./Account/index.php');
-    else
-    // redirect back to login page
-     header('Location : ./login-page.php');
+    // // was login a success    
+    // if($user->$isLoginSuccess) 
+    // // send to account
+    //     header('Location : ./Account/index.php');
+    // else
+    // // redirect back to login page
+    //  header('Location : login-page.php');
 
 
     
-//}
+}

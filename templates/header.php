@@ -12,9 +12,8 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="site.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<link rel="stylesheet" href="http://localhost:8080/UxEstate/site.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
     <style>
@@ -40,7 +39,7 @@
           <a class="nav-link" href="#features">features</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="./App.php">properties</a>
+          <a class="nav-link " href=" /UxEstate/App.php">properties</a>
         </li>
 
         <li class="nav-item">
@@ -49,6 +48,30 @@
       </ul>
 
       <ul class="navbar-nav float-right">
+      <?php if($user->isLoggedIn()):?>
+      
+        <li class="nav-item dropdown show">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Account</a>
+        <div class="dropdown-menu  dropdown-menu-right" id='login'aria-labelledby="dropdown01">
+          
+          <!-- login box-->
+         
+                    <div class="form-group">
+                      <?php  echo " Hi," . " ". $_SESSION['logged_user_data']['user_name']?>
+                      <a href="/UxEstate/logout.php">logout</a>
+                        <img class='img-fluid' src="https://better-digital-artist.com/wp-content/uploads/2019/04/picture_nicolas_delille.png"/>
+                  </div>
+           <!-- login box-->
+
+        </div>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link btn btn-info" href="./add.php">Add a listing <span class="sr-only">(current)</span></a>
+      </li>
+      
+
+      
+      <?php else: ?>
         <li class="nav-item active">
           <a class="nav-link" href="#">Register <span class="sr-only">(current)</span></a>
         </li>
@@ -62,7 +85,7 @@
                         <img class='img-fluid' src="https://better-digital-artist.com/wp-content/uploads/2019/04/picture_nicolas_delille.png"/>
 
                       <!-- <label for="exampleInputEmail1">Email address</label> -->
-                      <input name='username' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                      <input name='email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                       <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
                     <div class="form-group">
@@ -87,8 +110,9 @@
         </li>
       
         
-        
+    <?php endif; ?>
       </ul>
+      
       <!-- <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

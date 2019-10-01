@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+require 'init.php';
+
+?>
+
 <?php require'templates/header.php' ?>
 
 <div id="wrapper">
@@ -179,6 +186,7 @@
                                     </nav>
                                     <div class="tab-content" id="nav-tabContent">
                                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ducimus officia culpa, at natus voluptatibus fugiat doloribus eum qui, est velit facilis nisi ullam autem sunt quasi voluptates numquam dolorum.</p>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ducimus officia culpa, at natus voluptatibus fugiat doloribus eum qui, est velit facilis nisi ullam autem sunt quasi voluptates numquam dolorum.</p>
 
@@ -270,11 +278,12 @@
                     <div class='container list'>
                         <div class='row'>
                             <div class="listing-image col-md-5">
-                                <img  class='img-fluid' src='https://images1.apartments.com/i2/mpiquXuyW3e1Rph6py25eAAwRtZf4y-3xJCzzFESZeM/111/the-village-of-olde-hickory-lancaster-pa-primary-photo.jpg' alt=''/>
+                               
+                                <h1 class="listing-title"> <a href='#' ?><img  class='img-fluid' src='https://images1.apartments.com/i2/mpiquXuyW3e1Rph6py25eAAwRtZf4y-3xJCzzFESZeM/111/the-village-of-olde-hickory-lancaster-pa-primary-photo.jpg' alt=''/></a>
                                 
                             </div>
                             <div class="col-md-7">
-                                <h1 class="listing-title">440 sw Main st, Manheim PA 17545</h1>
+                                <h1 class="listing-title"><a href='#' ?>440 sw Main st, Manheim PA 17545</a></h1>
                                 <p class="listing-bed"><span>Bed Rooms 4</span> <span> Bath 1</span></p>
                                 <p class="listing-sqt">Sq Ft. <span>23,456</span></p>
                                 <p class="listing-built"><span>Years Built</span> <span> 1995</span></p>

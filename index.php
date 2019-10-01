@@ -1,3 +1,9 @@
+
+<?php
+
+session_start();
+require 'init.php';
+?>
 <?php require'templates/header.php' ?>
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">

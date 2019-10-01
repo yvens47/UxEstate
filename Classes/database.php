@@ -7,7 +7,7 @@ class Database {
     private $user;
     private $password;
 
-    private $database;
+    private $db;
 
 
     /**
@@ -20,12 +20,16 @@ class Database {
      *
      * @return void
      */
-    function __construct($host, $user, $password, $database){
+    function __construct($host, $user, $password, $db){
+        //echo $database;
 
         $this->host = $host;
         $this->user = $user;
         $this->password = $password;
-        $this->$database = $$database;
+        $this->$db = $db;
+       
+       
+
 
     }
 
@@ -35,8 +39,8 @@ class Database {
      * @return $link database connection
      */
     function  db_connect(){
-
-        $link = new mysqli($this->host, $this->user, $this->password, $this->database);
+       
+        $link = new mysqli('localhost', 'root','','UxEstate');
 
         if($link->connect_errno)
                 die(" could not connect to database ". $link->connect_error );
@@ -53,7 +57,7 @@ class Database {
      */
     function query($sql){
 
-       return  $this->db_connect()->prepare($sql);
+       return  $this->db_connect()->query($sql);
 
     }
 }

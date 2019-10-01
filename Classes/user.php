@@ -11,8 +11,9 @@ class User
     private $password;
     private $ip_address;
     protected $db;
+    private $isLogin = false;
 
-    private $user_type = [ 'Free', 'Premium', ];
+    private $user_type = [ 'Free', 'Premium', 'admin' ];
 
     function __construct($db){
 
@@ -27,10 +28,9 @@ class User
      *
      * @return full name of the user
      */
-    
     function user_full_name(){
 
-        return  $this->first_name + " "+ $this->last_name;
+        return  $this->first_name . " ".$this->last_name;
     }
 
     
@@ -43,28 +43,36 @@ class User
      * @return void
      */
     function login(array $user_data){
-         
-        $sql = "select * from member where username='?' and password='?'";
+
+        $password = $user_data['password'];
+        $email = $user_data['email'];
+       
+        $sql = "select * from member where email='$email' and password='$password'";        
            
-        $result =  $this->db->query($sql);
-        $statement =  $result->bind_param('ss', $username, $password);
-
-        
-        $statement->execute();
-
+        $result =  $this->db->query($sql); 
+       
         // check if at least one user record exist
+         if($result->num_rows ===1){
+             
+                $_SESSION["logged_user_data"] = $result->fetch_assoc() ;  //save user data in a session
+                heade('location: /Account/');
+                
+         }
+         else{
+              header('Location:  ./login-page.php');
+         }
+                
 
 
+    }
+    
+    function isLoggedIn(){
 
+       if( isset( $_SESSION['logged_user_data']))
 
-
-        // close connection and  statement
-        $statement->close();
-        $this->db->connection()->close();
-
-            
-
-
+            return $this->isLogin = true;
+       
+        return $this->isLogin;
     }
 
     /**
