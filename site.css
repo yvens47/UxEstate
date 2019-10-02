@@ -171,6 +171,15 @@ html {
    height: 100%;
 }
 
+#register_wwrap {
+    background: white;
+    padding: 60px;
+    min-height: 100%;
+}
+div#login-page {
+    padding: 60px 0;
+    min-height: 100%;
+}
 body {
    height: 100%;
 }

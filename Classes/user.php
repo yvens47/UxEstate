@@ -44,7 +44,7 @@ class User
      */
     function login(array $user_data){
 
-        $password = $user_data['password'];
+        $password =  md5($user_data['password']);
         $email = $user_data['email'];
        
         $sql = "select * from member where email='$email' and password='$password'";        
@@ -55,10 +55,12 @@ class User
          if($result->num_rows ===1){
              
                 $_SESSION["logged_user_data"] = $result->fetch_assoc() ;  //save user data in a session
-                heade('location: /Account/');
+                header('location: Account/');
                 
          }
          else{
+             $_SESSION['login_failed'] = "Sorry Login failed";
+
               header('Location:  ./login-page.php');
          }
                 
@@ -82,10 +84,50 @@ class User
      *
      * @return void
      */
-    function register(array $user_registration_data){
+    function register(array $user_registration_data){   
         
-        $sql = '';
+        $email = $user_registration_data['email'];
+        $password =$user_registration_data['password'];
+        
+        $sql = "SELECT * FROM `member` WHERE email ='$email' and password ='$password';";       
+
         $result =  $this->db->query($sql);
+        
+
+        if($result->num_rows  ==1 ){
+
+            // user already regitered 
+            echo "Email address is in use";
+
+            // set session and registered to previous page
+             $_SESSION["logged_user_data"] = $result->fetch_assoc() ;  //save user data in a session
+             header('location: '.$_SERVER['HTTP_REFERER']);
+            
+        
+        }else{
+            $date = date('Y-m-d');
+            // proceed with registrtation
+            $user = explode('@',$email)[0];
+             $sql ="   INSERT INTO `member`
+            (`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `register_date`, `date_update`)
+             VALUES (NULL, '', '', '$user',  '$email', MD5('$password'), '$date', '$date');";
+
+             $result =  $this->db->query($sql);
+
+            
+             if($result){
+                
+
+                //set session and redirect previous page
+                $_SESSION["registered_success"] = "You have registered successfully please login";  //save user data in a session
+                header('location: login-page.php');
+             }
+             else{
+                 echo "Registration failed";
+             }
+             
+            
+        }
 
 
     }

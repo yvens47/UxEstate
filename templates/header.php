@@ -73,7 +73,7 @@
       
       <?php else: ?>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Register <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="signup.php">Register <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown show">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Login</a>
