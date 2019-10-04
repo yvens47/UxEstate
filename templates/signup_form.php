@@ -21,6 +21,7 @@
                        
                          <div class="form-group">
                          <button class="btn btn-info">Signup </button>
+                         <a href="login-page.php">or Login</a>
                             
                         </div>
                         </form>

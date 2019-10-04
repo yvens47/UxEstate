@@ -89,25 +89,28 @@ class User
         $email = $user_registration_data['email'];
         $password =$user_registration_data['password'];
         
-        $sql = "SELECT * FROM `member` WHERE email ='$email' and password ='$password';";       
+        $sql = "SELECT * FROM `member` WHERE email ='$email' and password ='$password';";              
 
         $result =  $this->db->query($sql);
         
 
-        if($result->num_rows  ==1 ){
+        if($result->num_rows  == 1 ){
 
             // user already regitered 
             echo "Email address is in use";
 
             // set session and registered to previous page
              $_SESSION["logged_user_data"] = $result->fetch_assoc() ;  //save user data in a session
+           
+            // redirect to prev page
              header('location: '.$_SERVER['HTTP_REFERER']);
             
         
         }else{
             $date = date('Y-m-d');
             // proceed with registrtation
-            $user = explode('@',$email)[0];
+            $user = explode('@',$email)[0];  //create username from email provided
+
              $sql ="   INSERT INTO `member`
             (`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `register_date`, `date_update`)
              VALUES (NULL, '', '', '$user',  '$email', MD5('$password'), '$date', '$date');";
@@ -115,8 +118,7 @@ class User
              $result =  $this->db->query($sql);
 
             
-             if($result){
-                
+             if($result){               
 
                 //set session and redirect previous page
                 $_SESSION["registered_success"] = "You have registered successfully please login";  //save user data in a session
@@ -162,8 +164,22 @@ class User
      * @return void
      */
     function forgot_password($email){
+
+        // check if user had registered
+
+        // record exist 
+
+        // email user a temporay passowrd
+
+        //once login redirect to change pawword page
+
+        
+        
         
     }
+    
+
+
     
 }
 ?>

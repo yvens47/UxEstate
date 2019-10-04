@@ -15,6 +15,7 @@
                        
                          <div class="form-group">
                          <button class="btn btn-info">Sign in </button>
+                          <a href="http://">forgot password</a>
                             
                         </div>
  </form>

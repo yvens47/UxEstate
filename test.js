@@ -90,7 +90,7 @@ var driver = (function (app) {
         for (; i < list.length; i++) {
             if (list[i].innerHTML.toUpperCase().indexOf(search.value.toUpperCase()) > -1) {
                 list[i].style.display = '';
-                list[i].style.color = 'green';
+                //list[i].style.color = 'green';
 
 
             } else {

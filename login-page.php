@@ -23,6 +23,7 @@ if($user->isLoggedIn()){
             </button>
     </div>
 
+    <?php  unset($_SESSION["registered_success"]) ?>
     <?php endif; ?>
   
         <div class="row">

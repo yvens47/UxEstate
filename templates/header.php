@@ -66,7 +66,7 @@
         </div>
       </li>
       <li class="nav-item active">
-          <a class="nav-link btn btn-info" href="./add.php">Add a listing <span class="sr-only">(current)</span></a>
+          <a class="nav-link btn btn-info" href="/UxEstate/add.php">Add a listing <span class="sr-only">(current)</span></a>
       </li>
       
 
@@ -80,7 +80,7 @@
         <div class="dropdown-menu  dropdown-menu-right" id='login'aria-labelledby="dropdown01">
           
           <!-- login box-->
-          <form method='POST' action='login.php'>
+          <form method='POST' action='login_handler.php'>
                     <div class="form-group">
                         <img class='img-fluid' src="https://better-digital-artist.com/wp-content/uploads/2019/04/picture_nicolas_delille.png"/>
 
@@ -101,12 +101,13 @@
                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
             </form>
 
+
            <!-- login box-->
 
         </div>
       </li>
       <li class="nav-item active">
-          <a class="nav-link btn btn-info" href="./add.php">Add a listing <span class="sr-only">(current)</span></a>
+          <a class="nav-link btn btn-info" href="UxEstate/add.php">Add a listing <span class="sr-only">(current)</span></a>
         </li>
       
         

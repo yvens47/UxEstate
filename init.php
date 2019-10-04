@@ -9,6 +9,8 @@
    require  ABSPATH ."Classes/user.php";
    require  ABSPATH ."Classes/database.php";
    require  ABSPATH ."config/config.php";
+   require  ABSPATH . "Classes/property.php";
+   require  ABSPATH . "Classes/image.php";
   
 
    

@@ -16,7 +16,8 @@ if(!$user->isLoggedIn()){
             <div class="row">
                 <div class="col-md-6">
                     <h1>Lorem ipsum dolor sit amet </h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    <p>Lorem ip\[lo
+                    sum dolor sit amet consectetur adipisicing elit. 
                     Commodi, mollitia ipsa ducimuprovident fugit nihil nam quibusdam, 
                     cupiditate.ti, quod?</p>
                     <hr>

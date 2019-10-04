@@ -60,4 +60,23 @@ class Database {
        return  $this->db_connect()->query($sql);
 
     }
+
+    function  assoc_resultset_row($query){
+       
+        if($query->num_rows == 0){
+
+        }
+
+        else if($query->num_rows  == 1 ){
+             return $query->fetch_assoc();
+        }else{
+            $rows =array();
+            while($row = $query->fetch_assoc()){
+                $rows[] = $row;
+            }
+
+            return $rows;
+
+        }
+    }
 }

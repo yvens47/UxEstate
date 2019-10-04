@@ -58,7 +58,7 @@ require 'init.php';
   </div>
   <div class=' position'>
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <h1 class="header">
               Welcome to <span>UxEstate</span>
             </h1>
@@ -67,7 +67,7 @@ require 'init.php';
             </p>
           </div>
 
-          <div class="col-md-8">
+          <div class="col-md-12">
             
                 <input placeholder='Enter an address, city, or zip code'style='border-radius:0'class='form-control col-md-11 search float-left' type="search" name="" id="">
                 <button style='border-radius:0'class=" float-left btn btn-info float-left">Go</button>
@@ -174,7 +174,7 @@ require 'init.php';
                     <div class="col-md-4">
                         <div class="card product">
                             <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=746&q=80" class=" img-fluid card-img-top" alt="...">
-                            <p class='price'> $400,000</p>
+                            <p class='price'> $340,000</p>
                             
                             <div class="card-body">
                                 <h5 class="card-title">Giant's Ville Houses</h5>
@@ -206,47 +206,6 @@ require 'init.php';
 
 
              <div class="row mt-3">
-                <!-- <div class="col-md-12">
-                    <h2 class=lead-3>Feature <span>Listings</span></h2>
-                    <p class='pb-3'>ome quick example text to build on the card title and make <p>
-                </div> -->
-
-
-                    <div class="col-md-4">
-                        <div class="card product">
-                            <img src="https://images.unsplash.com/photo-1430285561322-7808604715df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" class=" img-fluid card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Manheim manor</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card product" >
-                            <img src="https://images.unsplash.com/photo-1464316325666-63beaf639dbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" class=" img-fluid card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4">
-                        <div class="card product" >
-                            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=746&q=80" class=" img-fluid card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                        
-                
                 
             </div>
            
