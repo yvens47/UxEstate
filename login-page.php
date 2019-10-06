@@ -29,10 +29,16 @@ if($user->isLoggedIn()){
         <div class="row">
             <div class="col-md-4">
              <!-- login form -->
+                    <div class='login-form sign-form-wrapper'>
+                        <h2 class='sign-header text-center'>Log in</h2>
+                            <hr/>
 
-             <?php require ABSPATH.'templates/login_form.php' ?>
-                <?php echo $_SESSION['login_failed'] ?>
-                
+                    <?php require ABSPATH.'templates/login_form.php' ?>
+                        <?php //echo $_SESSION['login_failed'] ?>
+                    </div>
+                    <p class ='text-center'> Not a member? please  <a href='/UxEstate/signup.php'>register</a></p>
+                    <!-- login form ends here -->
+                        
             
             </div>
             <div class="col-md-4">

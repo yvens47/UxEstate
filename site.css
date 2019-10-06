@@ -186,6 +186,10 @@ div#nav-tabContent {
 html {
    height: 100%;
 }
+.delete{
+    display: none;
+    transition: all 6s;
+}
 #account {
 
     padding: 60px 0;

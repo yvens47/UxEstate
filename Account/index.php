@@ -12,9 +12,21 @@ if(!$user->isLoggedIn()){
 
 
 require ABSPATH. 'Account/templates/header.php' ?>
+
 <div id='account'>
 
     <div class="container-fluid">
+      <?php 
+        if(isset($_SESSION['new_property_add_id'])): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+         <?php  unset($_SESSION['new_property_add_id']);  endif ?>
+
+         <!-- end  of a success  alert -->
         <div class="row">
             <div class="col-md-3">
 
@@ -55,19 +67,13 @@ require ABSPATH. 'Account/templates/header.php' ?>
                                    
                   </div>
 
-                
-
-
-
             </div>
             
 
             <div class="col-md-9">
 
                 <!--- dashboard info-->
-                  <div class="dash-info">
-
-                           
+                  <div class="dash-info">                           
                   
                   </div>
                 <!--- dashboard info ends here-->
@@ -101,6 +107,8 @@ require ABSPATH. 'Account/templates/header.php' ?>
                                 <th scope="col">Listing Price</th>
                                 <th scope="col">Posted Date</th>
                                 <th scope="col">images</th>
+                                <th scope="col">Action</th>
+
                                 
                               </tr>
                              </thead>
@@ -110,14 +118,17 @@ require ABSPATH. 'Account/templates/header.php' ?>
                                 <td><?php  echo "<strong>".$value['street']."</strong>". " ".$value['city'] .", " .$value['state']." ". $value['postal_code'];?></td> 
                                 <td><?php  echo  "$".number_format($value['listing_price']);?></td> 
                                 <td><?php  echo   $value['listing_date']?></td> 
+                                
                                 <?php 
                                
                                 $property_id =$value['id'];
                                
                                 $sql_image = "select image_name from property_image where property_id='$property_id' " ;?>
                                 <!-- print image or button to upload images-->
-                                <td><?php  echo  empty( $property->view($sql_image))?" <a  data-id = '$property_id' data-toggle='modal' data-target='#exampleModal' class='btn btn-info upload-prop-images' href='Upload'><i class='material-icons icons'>backup</i>Add Photos </a>": print_r( $property->view($sql_image))?></td> 
-
+                                <td><?php  echo  empty( $property->view($sql_image))?" <a  data-id = '$property_id' data-toggle='modal' data-target='#exampleModal' class='btn btn-info upload-prop-images' href='Upload'><i class='material-icons icons'>backup</i>Add Photos </a>":  count( $property->view($sql_image))?></td> 
+                                <td>
+                                <a href='edit.php?id=<?php echo $property_id ?>' class='btn btn-info'>Edit</a>
+                                <a  onclik=''href='delete.php?id=<?php echo $property_id ?>' class='btn btn-danger deletePropertyBtn'>Delete</a></td> 
 
                             </tr>
 

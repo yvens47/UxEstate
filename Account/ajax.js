@@ -9,6 +9,8 @@ var myfunc = async function (url) {
     return JSON.stringify(myJson);
 
 }
+
+
 var listing = document.querySelector('.listing');
 
 var listings = myfunc('http://localhost:8080/UxEstate/Account/ajax/listins.php').then(function (e) {
@@ -44,4 +46,21 @@ uploadPropertyImageBtns.forEach(function (value) {
     })
 })
 
+
+
+const deletePropertyBtns = document.querySelectorAll('.deletePropertyBtn');
+
+newFunction();
+function newFunction() {
+    deletePropertyBtns.forEach(function (btn) {
+        // add event listener on  delete btns account page
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            // ajax request  delete record from db 
+
+            // delete row from the ui
+            e.target.parentElement.parentElement.classList.add('delete')
+        });
+    });
+}
 

@@ -17,9 +17,6 @@ var houses = [
 
 var gMap = (function () {
 
-
-
-
     var ul = [
         { lat: -40.070195, lng: -76.295671 },
         { lat: -13.070195, lng: -50.295671 },
@@ -49,9 +46,9 @@ var gMap = (function () {
 
 
     }
-    console.log(google)
+
     geo = new google.maps.Geocoder();
-    geocodeAddress(geo, map);
+    //  geocodeAddress(geo, map);
 
     function geocodeAddress(geocoder, resultsMap) {
         // var address = document.getElementById('address').value;
@@ -68,7 +65,7 @@ var gMap = (function () {
         });
     }
 
-    console.log(geo.address);
+
 
 
     google.maps.event.addDomListener(window, 'load', initMap);

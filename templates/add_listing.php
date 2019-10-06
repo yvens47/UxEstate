@@ -7,11 +7,11 @@
                                 <div class='container'>
                                         <div class="row">
                                                         <div class="col-md-6 pl-0">
-                                                        <input name='street' type="text" class="form-control" id="exampleFormControlInput1" placeholder="street address">
+                                                        <input name='street' type="text"  value='<?php if(!empty($listing_data)){ echo $listing_data['street']; }  ?>' class="form-control" id="exampleFormControlInput1" placeholder="street address">
 
                                                         </div>
                                                         <div class="col-md-6 pr-0">
-                                                        <input name='city' type="text" class="form-control" id="exampleFormControlInput1" placeholder="City">
+                                                        <input value='<?php if(!empty($listing_data)){ echo $listing_data['city']; }  ?>' name='city' type="text" class="form-control" id="exampleFormControlInput1" placeholder="City">
 
                                                         </div>
                                         </div>
@@ -22,11 +22,11 @@
                                 <div class='container'>
                                         <div class="row">
                                                         <div class="col-md-6 pl-0">
-                                                        <input name='state' type="text" class="form-control" id="exampleFormControlInput1" placeholder="State">
+                                                        <input value='<?php if(!empty($listing_data)){ echo $listing_data['state']; }  ?>' name='state' type="text" class="form-control" id="exampleFormControlInput1" placeholder="State">
 
                                                         </div>
                                                         <div class="col-md-6 pr-0">
-                                                        <input name='postal' type="text" class="form-control" id="exampleFormControlInput1" placeholder="Zip Code">
+                                                        <input value='<?php if(!empty($listing_data)){ echo $listing_data['postal_code']; }  ?>' name='postal' type="text" class="form-control" id="exampleFormControlInput1" placeholder="Zip Code">
 
                                                         </div>
                                         </div>
@@ -37,7 +37,7 @@
 
                          <div class="form-group">
                             <!-- <label for="exampleFormControlInput1">Email address</label> -->
-                            <input name='property_price' type="number" class="form-control" id="exampleFormControlInput1" placeholder="property price">
+                            <input value='<?php if(!empty($listing_data)){ echo $listing_data['listing_price']; }  ?>' name='property_price' type="number" class="form-control" id="exampleFormControlInput1" placeholder="property price">
                         </div>
                         <div class="form-group">
                                 <!-- <label for="exampleFormControlSelect1">Home Type</label> -->
@@ -54,11 +54,11 @@
 
                                     <div class="row">
                                         <div class="col-md-6 pl-0">
-                                           <input name='bedrooms' type="number" class="form-control" id="exampleFormControlInput1" placeholder="How many bedrooms">
+                                           <input value='<?php if(!empty($listing_data)){ echo $listing_data['bedrrooms']; }  ?>'name='bedrooms' type="number" class="form-control" id="exampleFormControlInput1" placeholder="How many bedrooms">
 
                                         </div>
                                         <div class="col-md-6 pr-0">
-                                          <input name='bathrooms' type="number" class="form-control" id="exampleFormControlInput1" placeholder="How many baths">
+                                          <input value='<?php if(!empty($listing_data)){ echo $listing_data['bathrooms']; }  ?>' name='bathrooms' type="number" class="form-control" id="exampleFormControlInput1" placeholder="How many baths">
 
                                         </div>
                                     </div>
@@ -74,11 +74,13 @@
                         
                         <div class="form-group">
                             <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
-                            <textarea name='description' class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder='Description of the property'></textarea>
+                            <textarea  name='description' class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder='Description of the property'>
+                            
+                            </textarea>
                         </div>
 
                          <div class="form-group">
-                         <button class="btn btn-info">Add Property</button>
+                         <button class="btn btn-info"><?php echo (isset($id)) ? "Edit" :"Add Property";  ?></button>
                             
                         </div>
                         </form>

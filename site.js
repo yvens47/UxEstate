@@ -6,8 +6,11 @@ var UiController = (function () {
     const price = document.querySelector('.price');
     const productCard = document.querySelectorAll('.product');
 
+
+
     const uiList = [price, productCard]
     return {
+
         uIList: uiList,
     }
 
@@ -18,6 +21,9 @@ var app = (function (ui) {
 
 
     // console.log(ui.uIList);
+    console.log(ui);
+
+
 
 
 

@@ -56,20 +56,23 @@ class Property {
         $date = date('Y-m-d');
 
         $sql = "INSERT INTO `property`
-         (`id`, `agent_id`, `street`, `ctity`, `state`, `postal_code`, 
+         (`id`, `agent_id`, `street`, `city`, `state`, `postal_code`, 
          `bedrrooms`, `bathrooms`, `listing_price`, `type`, `listing_date`, `listing_updated`) 
         VALUES (NULL, '$user_id', '$this->street', '$this->city', '$this->state', '$this->zip', 
         '$this->bedrooms', '$this->bathrooms',
                  '$this->price', ' $this->type ',  CONCAT(CURDATE(), ' ', CURTIME()), CURDATE());
                 --";   
         
+        echo $sql;
         
 
         $result = $this->db->query($sql);
         if($result){
+
+            header('location /UxEstate/Account/');
             
-            //$_SESSION['new_property_add_id'] = 
-            // print_r( mysqli_insert_id($this->db->db_connect()));
+            $_SESSION['new_property_add_id'] =  "Your listing was added successfully";
+             print_r( mysqli_insert_id($this->db->db_connect()));
            
         }
 
@@ -81,7 +84,8 @@ class Property {
         
     }
 
-    function view($sql ){           
+    function view($sql ){  
+                 
         $result = $this->db->query($sql);        
 
         return  $this->db->assoc_resultset_row($result);        
@@ -91,11 +95,31 @@ class Property {
 
     }
 
-    function edit(){
+    function edit($id){
+
+       //
 
     }
 
-    function delete (){
+    /**
+     * delete a listing base on id
+     *
+     * @param  mixed $property_id
+     *
+     * @return void
+     */
+    function delete ($property_id){
+        $id = (int)intval($property_id);
+        
+        $sql  = " delete from property where id ='$id'";
+        $result = $this->db->query($sql);
+        if($result){
+            echo "Your Property was deleted";
+        } else{ 
+            echo  "Could not delete the listing at this time"; 
+        }
+
+        
 
     }
 }
